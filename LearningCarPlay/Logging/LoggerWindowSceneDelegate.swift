@@ -18,13 +18,17 @@ class LoggerWindowSceneDelegate: NSObject, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         
-        let colorViewController = UIStoryboard(name: "Color", bundle: nil).instantiateViewController(withIdentifier: "ColorViewController") as! ColorViewController
-        window?.rootViewController = colorViewController
+//        let colorViewController = UIStoryboard(name: "Color", bundle: nil).instantiateViewController(withIdentifier: "ColorViewController") as! ColorViewController
+//        MemoryLogger.shared.colorDelegate = colorViewController
+//        window?.rootViewController = colorViewController
+//        window?.windowScene = windowScene
+//        window?.makeKeyAndVisible()
+        
+        let logVC = LoggerViewController()
+        window?.rootViewController = logVC
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-
-        MemoryLogger.shared.colorDelegate = colorViewController
-        
+        MemoryLogger.shared.delegate = logVC
         MemoryLogger.shared.appendEvent("Logger window scene will connect.")
     }
     

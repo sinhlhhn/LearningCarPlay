@@ -11,7 +11,6 @@
 		538C11C02B4D24AC00D751B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538C11BE2B4D24AC00D751B5 /* LaunchScreen.storyboard */; };
 		538C11CA2B4D251700D751B5 /* Color.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538C11C82B4D251700D751B5 /* Color.storyboard */; };
 		538C11CB2B4D251700D751B5 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11C92B4D251700D751B5 /* ColorViewController.swift */; };
-		538C11CD2B4D254100D751B5 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 538C11CC2B4D254100D751B5 /* Entitlements.plist */; };
 		538C11D12B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11CF2B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift */; };
 		538C11D22B4D256100D751B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11D02B4D256100D751B5 /* AppDelegate.swift */; };
 		538C11D72B4D258000D751B5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11D42B4D258000D751B5 /* Logger.swift */; };
@@ -175,7 +174,6 @@
 				538C11C02B4D24AC00D751B5 /* LaunchScreen.storyboard in Resources */,
 				538C11BD2B4D24AC00D751B5 /* Assets.xcassets in Resources */,
 				538C11CA2B4D251700D751B5 /* Color.storyboard in Resources */,
-				538C11CD2B4D254100D751B5 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

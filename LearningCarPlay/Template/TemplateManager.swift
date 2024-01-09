@@ -42,11 +42,11 @@ class TemplateManager: NSObject {
     }
     
     private func listTemplateFromPlaces() -> CPListTemplate {
-        let places: [String] = ["1", "2", "3"]
+        let places: [LockData.LockDetail] = LockData.falseQuickOrders
         let storeListTemplate = CPListTemplate(
             title: "Locations",
             sections: [CPListSection(items: places.compactMap({ (place) -> CPListItem in
-                let listItem = CPListItem(text: place, detailText: nil)
+                let listItem = CPListItem(text: place.name, detailText: place.detail)
                 listItem.handler = { [weak self] item, completion in
                     self?.showOrderTemplate()
                     completion()
@@ -61,35 +61,17 @@ class TemplateManager: NSObject {
     
     private func showOrderTemplate() {
         let infoTemplate = CPInformationTemplate(
-            title: "Order Options",
+            title: "Lock",
             layout: CPInformationTemplateLayout.leading,
-            items: FalseHoagieData.falseQuickOrders.compactMap({ (orderItem) -> CPInformationItem in
-                return CPInformationItem(title: orderItem.type, detail: orderItem.order.joined(separator: "\n"))
-            }),
+            items: [CPInformationItem(title: "Lock State", detail: nil)],
             actions: [
-                CPTextButton(title: "Order Last", textStyle: .confirm, handler: { [weak self] (button) in
-                    MemoryLogger.shared.appendEvent("Ordering last .")
+                CPTextButton(title: "Press", textStyle: .normal, handler: {(button) in
+                    MemoryLogger.shared.appendEvent("Press")
                     MemoryLogger.shared.updateColor()
-                }),
-                CPTextButton(title: "Order Favorite", textStyle: .confirm, handler: { [weak self] (button) in
-                    MemoryLogger.shared.appendEvent("Ordering favorite .")
                 })
             ])
-        
-        // Two templates is the maximum for quick-ordering CarPlay apps. The sample validates it here as a reminder.
-        if let controller = carplayInterfaceController,
-           controller.templates.count < 2 {
-            carplayInterfaceController?.pushTemplate(infoTemplate, animated: true) { [weak self] (done, error) in
-                self?.handleError(error, prependedMessage: "Error pushing \(infoTemplate.classForCoder)")
-            }
-        } else {
-            carplayInterfaceController?.popToRootTemplate(animated: true) { [weak self] (done, error) in
-                if self?.handleError(error, prependedMessage: "Error popping to root template") == false {
-                    self?.carplayInterfaceController?.pushTemplate(infoTemplate, animated: true) { (done, error) in
-                        self?.handleError(error, prependedMessage: "Error pushing \(infoTemplate.classForCoder)")
-                    }
-                }
-            }
+        carplayInterfaceController?.pushTemplate(infoTemplate, animated: true) { [weak self] (done, error) in
+            self?.handleError(error, prependedMessage: "Error pushing \(infoTemplate.classForCoder)")
         }
     }
     
@@ -134,29 +116,23 @@ extension TemplateManager: CPInterfaceControllerDelegate {
     }
 }
 
-class FalseHoagieData {
-    static let falseData = FalseHoagieData()
+class LockData {
+    
     static let falseQuickOrders = [
-        HoagieOrder(
-            orderItems: [
-                "Italian Hoagie * no mayo, no tomato, extra cheese",
-                "Large unsweetened Tea"],
-            typeOfOrder: "Last Order (on 12/31/2020)"),
-        HoagieOrder(
-            orderItems: [
-                "Veggie Hoagie",
-                "Oatmeal cookie"],
-            typeOfOrder: "Favorite")
+        LockDetail(name: "Lock 1", detail: "This is lock 1"),
+        LockDetail(name: "Lock 2", detail: "This is lock 2"),
+        LockDetail(name: "Lock 3", detail: "This is lock 3"),
+        LockDetail(name: "Lock 4", detail: "This is lock 4")
     ]
     
     // MARK: Orders
     
-    class HoagieOrder {
-        var order: [String]
-        var type: String
-        init(orderItems: [String], typeOfOrder: String) {
-            order = orderItems
-            type = typeOfOrder
+    class LockDetail {
+        var name: String
+        var detail: String
+        init(name: String, detail: String) {
+            self.name = name
+            self.detail = detail
         }
     }
 }
