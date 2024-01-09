@@ -41,14 +41,20 @@ class TemplateManager: NSObject {
         })
     }
     
-    private func listTemplateFromPlaces() -> CPListTemplate {
+    func updateTemplate(state: String) {
+        let tabTemplate = CPTabBarTemplate(templates: [listTemplateFromPlaces(state: state)])
+        
+        carplayInterfaceController?.setRootTemplate(tabTemplate, animated: true) { _, _ in }
+    }
+    
+    private func listTemplateFromPlaces(state: String = "Processing") -> CPListTemplate {
         let places: [LockData.LockDetail] = LockData.falseQuickOrders
         let storeListTemplate = CPListTemplate(
             title: "Locations",
             sections: [CPListSection(items: places.compactMap({ (place) -> CPListItem in
-                let listItem = CPListItem(text: place.name, detailText: place.detail)
-                listItem.handler = { [weak self] item, completion in
-                    self?.showOrderTemplate()
+                let listItem = CPListItem(text: place.name, detailText: state)
+                listItem.handler = { item, completion in
+                    NotificationCenter.default.post(name: .lockStateChanged, object: ["lock_name": place.name])
                     completion()
                 }
                 return listItem
@@ -58,31 +64,6 @@ class TemplateManager: NSObject {
         storeListTemplate.tabImage = UIImage(systemName: "list.star")!
         return storeListTemplate
     }
-    
-    private func showOrderTemplate() {
-        let infoTemplate = CPInformationTemplate(
-            title: "Lock",
-            layout: CPInformationTemplateLayout.leading,
-            items: [CPInformationItem(title: "Lock State", detail: nil)],
-            actions: [
-                CPTextButton(title: "Press", textStyle: .normal, handler: {(button) in
-                    MemoryLogger.shared.appendEvent("Press")
-                    MemoryLogger.shared.updateColor()
-                })
-            ])
-        carplayInterfaceController?.pushTemplate(infoTemplate, animated: true) { [weak self] (done, error) in
-            self?.handleError(error, prependedMessage: "Error pushing \(infoTemplate.classForCoder)")
-        }
-    }
-    
-    @discardableResult
-    func handleError(_ error: Error?, prependedMessage: String) -> Bool {
-        if let error = error {
-            MemoryLogger.shared.appendEvent("\(prependedMessage): \(error.localizedDescription).")
-        }
-        return error != nil
-    }
-    
 }
 
 extension TemplateManager: CPTabBarTemplateDelegate {

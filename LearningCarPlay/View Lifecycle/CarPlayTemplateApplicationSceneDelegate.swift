@@ -15,6 +15,7 @@ class CarPlayTemplateApplicationSceneDelegate: NSObject {
     // MARK: UISceneDelegate
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        setupNotification()
         if scene is CPTemplateApplicationScene, session.configuration.name == "TemplateSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Template application scene will connect.")
         }
@@ -53,5 +54,20 @@ extension CarPlayTemplateApplicationSceneDelegate: CPTemplateApplicationSceneDel
                                   didDisconnectInterfaceController interfaceController: CPInterfaceController) {
         MemoryLogger.shared.appendEvent("Template application scene did disconnect.")
         templateManager.interfaceControllerDidDisconnect(interfaceController, scene: templateApplicationScene)
+    }
+}
+
+extension CarPlayTemplateApplicationSceneDelegate {
+    private func setupNotification() {
+        NotificationCenter.default.post(name: .requestLockState, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateLockState), name: .newLockStateForCarPlay, object: nil)
+    }
+    
+    @objc private func updateLockState(_ notification: NSNotification) {
+        if let dict = notification.object as? [String: String],
+        let state = dict["state"] {
+            print("updateLockState: ", state)
+            templateManager.updateTemplate(state: state)
+        }
     }
 }
