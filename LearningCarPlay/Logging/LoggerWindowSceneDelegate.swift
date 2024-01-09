@@ -14,7 +14,7 @@ class LoggerWindowSceneDelegate: NSObject, UIWindowSceneDelegate {
     // MARK: UISceneDelegate
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = scene as? UIWindowScene, session.configuration.name == "LoggerSceneConfiguration" else { return }
+        guard let windowScene = scene as? UIWindowScene, session.configuration.name == "ColorSceneConfiguration" else { return }
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         
@@ -32,19 +32,19 @@ class LoggerWindowSceneDelegate: NSObject, UIWindowSceneDelegate {
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-        if scene.session.configuration.name == "LoggerSceneConfiguration" {
+        if scene.session.configuration.name == "ColorSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Logger window scene did disconnect.")
         }
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        if scene.session.configuration.name == "LoggerSceneConfiguration" {
+        if scene.session.configuration.name == "ColorSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Logger window scene did become active.")
         }
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        if scene.session.configuration.name == "LoggerSceneConfiguration" {
+        if scene.session.configuration.name == "ColorSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Logger window scene will resign active.")
         }
     }

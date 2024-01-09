@@ -48,7 +48,7 @@
                     <key>UISceneClassName</key>
                     <string>UIWindowScene</string>
                     <key>UISceneConfigurationName</key>
-                    <string>LoggerSceneConfiguration</string>
+                    <string>ColorSceneConfiguration</string>
                     <key>UISceneDelegateClassName</key>
                     <string>$(PRODUCT_MODULE_NAME).LoggerWindowSceneDelegate</string>
                 </dict>

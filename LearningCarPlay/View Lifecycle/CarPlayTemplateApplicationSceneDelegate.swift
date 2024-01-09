@@ -16,25 +16,26 @@ class CarPlayTemplateApplicationSceneDelegate: NSObject {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         setupNotification()
-        if scene is CPTemplateApplicationScene, session.configuration.name == "TemplateSceneConfiguration" {
+        if scene is CPTemplateApplicationScene, session.configuration.name == "CarPlayTemplateSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Template application scene will connect.")
         }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        if scene.session.configuration.name == "TemplateSceneConfiguration" {
+        if scene.session.configuration.name == "CarPlayTemplateSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Template application scene did disconnect.")
         }
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        if scene.session.configuration.name == "TemplateSceneConfiguration" {
+        if scene.session.configuration.name == "CarPlayTemplateSceneConfiguration" {
+            NotificationCenter.default.post(name: .requestLockState, object: nil)
             MemoryLogger.shared.appendEvent("Template application scene did become active.")
         }
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        if scene.session.configuration.name == "TemplateSceneConfiguration" {
+        if scene.session.configuration.name == "CarPlayTemplateSceneConfiguration" {
             MemoryLogger.shared.appendEvent("Template application scene will resign active.")
         }
     }
@@ -59,7 +60,6 @@ extension CarPlayTemplateApplicationSceneDelegate: CPTemplateApplicationSceneDel
 
 extension CarPlayTemplateApplicationSceneDelegate {
     private func setupNotification() {
-        NotificationCenter.default.post(name: .requestLockState, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateLockState), name: .newLockStateForCarPlay, object: nil)
     }
     
