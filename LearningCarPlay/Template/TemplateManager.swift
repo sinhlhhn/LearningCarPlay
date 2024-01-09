@@ -35,16 +35,15 @@ class TemplateManager: NSObject {
     
     func setRootTemplate() {
         let tabTemplate = CPTabBarTemplate(templates: [listTemplateFromPlaces()])
-        
         carplayInterfaceController?.setRootTemplate(tabTemplate, animated: true, completion: { _, _ in
             //request for the lock
         })
     }
     
     func updateTemplate(state: String) {
-        let tabTemplate = CPTabBarTemplate(templates: [listTemplateFromPlaces(state: state)])
-        
-        carplayInterfaceController?.setRootTemplate(tabTemplate, animated: true) { _, _ in }
+        if let root = carplayInterfaceController?.rootTemplate as? CPTabBarTemplate {
+            root.updateTemplates([listTemplateFromPlaces(state: state)])
+        }
     }
     
     private func listTemplateFromPlaces(state: String = "Processing") -> CPListTemplate {
@@ -55,7 +54,6 @@ class TemplateManager: NSObject {
                 let listItem = CPListItem(text: place.name, detailText: state)
                 listItem.handler = { item, completion in
                     NotificationCenter.default.post(name: .lockStateChanged, object: ["lock_name": place.name])
-                    completion()
                 }
                 return listItem
             }))])
