@@ -12,6 +12,13 @@ extension NSNotification.Name {
 class ColorViewController: UIViewController {
 
     @IBOutlet weak var colorLabel: UILabel!
+    
+    var locks: [LockModel] = [
+        LockModel(name: "Lock 1", state: .open),
+        LockModel(name: "Lock 2", state: .closed),
+        LockModel(name: "Lock 3", state: .open)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateLockState), name: .lockStateChanged, object: nil)
@@ -19,14 +26,20 @@ class ColorViewController: UIViewController {
     }
     
     @objc private func updateLockState(_ notification: NSNotification) {
-        if let dict = notification.object as? [String: String],
-        let lockName = dict["lock_name"] {
-            print(lockName)
-            colorLabel.text = lockName
+        guard let dict = notification.object as? [String: String],
+        let lockName = dict["lock_name"] else {
+            return
+        }
+        print(lockName)
+        colorLabel.text = lockName
+        for lock in locks {
+            if lock.name.contains(lockName) {
+                lock.toggle()
+            }
         }
         // fake request api
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            NotificationCenter.default.post(name: .newLockStateForCarPlay, object: ["state":"new state"])
+            NotificationCenter.default.post(name: .newLockStateForCarPlay, object: self.locks)
         }
     }
     
@@ -34,7 +47,7 @@ class ColorViewController: UIViewController {
         colorLabel.text = "get lock state"
         // fake request api
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            NotificationCenter.default.post(name: .newLockStateForCarPlay, object: ["state":"default state"])
+            NotificationCenter.default.post(name: .newLockStateForCarPlay, object: self.locks)
         }
     }
 }

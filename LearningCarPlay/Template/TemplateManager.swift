@@ -34,29 +34,28 @@ class TemplateManager: NSObject {
     }
     
     func setRootTemplate() {
-        let tabTemplate = CPTabBarTemplate(templates: [listTemplateFromPlaces()])
+        let tabTemplate = CPTabBarTemplate(templates: [listTemplateFromPlaces(locks: [LockModel.defaultLock])])
         carplayInterfaceController?.setRootTemplate(tabTemplate, animated: true, completion: { _, _ in
             //request for the lock
         })
     }
     
-    func updateTemplate(state: String) {
+    func updateTemplate(locks: [LockModel]) {
         if let root = carplayInterfaceController?.rootTemplate as? CPTabBarTemplate {
-            root.updateTemplates([listTemplateFromPlaces(state: state)])
+            root.updateTemplates([listTemplateFromPlaces(locks: locks)])
         }
     }
     
-    private func listTemplateFromPlaces(state: String = "Processing") -> CPListTemplate {
-        let places: [LockData.LockDetail] = LockData.falseQuickOrders
+    private func listTemplateFromPlaces(locks: [LockModel]) -> CPListTemplate {
         let storeListTemplate = CPListTemplate(
-            title: "Locations",
-            sections: [CPListSection(items: places.compactMap({ (place) -> CPListItem in
-                let listItem = CPListItem(text: place.name, detailText: state)
+            title: "Locks",
+            sections: [CPListSection(items: locks.compactMap { (lock) -> CPListItem in
+                let listItem = CPListItem(text: lock.name, detailText: lock.state.rawValue)
                 listItem.handler = { item, completion in
-                    NotificationCenter.default.post(name: .lockStateChanged, object: ["lock_name": place.name])
+                    NotificationCenter.default.post(name: .lockStateChanged, object: ["lock_name": lock.name])
                 }
                 return listItem
-            }))])
+            })])
         
         storeListTemplate.tabTitle = "List"
         storeListTemplate.tabImage = UIImage(systemName: "list.star")!
@@ -95,23 +94,28 @@ extension TemplateManager: CPInterfaceControllerDelegate {
     }
 }
 
-class LockData {
+class LockModel {
+    let name: String
+    var state: LockState
     
-    static let falseQuickOrders = [
-        LockDetail(name: "Lock 1", detail: "This is lock 1"),
-        LockDetail(name: "Lock 2", detail: "This is lock 2"),
-        LockDetail(name: "Lock 3", detail: "This is lock 3"),
-        LockDetail(name: "Lock 4", detail: "This is lock 4")
-    ]
+    init(name: String, state: LockState) {
+        self.name = name
+        self.state = state
+    }
     
-    // MARK: Orders
+    static let defaultLock = LockModel(name: "Loading lock", state: .processing)
     
-    class LockDetail {
-        var name: String
-        var detail: String
-        init(name: String, detail: String) {
-            self.name = name
-            self.detail = detail
+    enum LockState: String {
+        case open
+        case closed
+        case processing
+    }
+    
+    func toggle() {
+        switch state {
+        case .open: state = .closed
+        case .closed: state = .open
+        case .processing: state = .processing
         }
     }
 }

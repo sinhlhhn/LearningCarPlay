@@ -64,10 +64,9 @@ extension CarPlayTemplateApplicationSceneDelegate {
     }
     
     @objc private func updateLockState(_ notification: NSNotification) {
-        if let dict = notification.object as? [String: String],
-        let state = dict["state"] {
-            print("updateLockState: ", state)
-            templateManager.updateTemplate(state: state)
+        if let locks = notification.object as? [LockModel] {
+            print("updateLockState: ", locks.count)
+            templateManager.updateTemplate(locks: locks)
         }
     }
 }
