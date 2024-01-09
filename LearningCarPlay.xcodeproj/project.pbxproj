@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		538C11B42B4D24AA00D751B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11B32B4D24AA00D751B5 /* AppDelegate.swift */; };
-		538C11B62B4D24AA00D751B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11B52B4D24AA00D751B5 /* SceneDelegate.swift */; };
-		538C11B82B4D24AA00D751B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11B72B4D24AA00D751B5 /* ViewController.swift */; };
-		538C11BB2B4D24AA00D751B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538C11B92B4D24AA00D751B5 /* Main.storyboard */; };
 		538C11BD2B4D24AC00D751B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538C11BC2B4D24AC00D751B5 /* Assets.xcassets */; };
 		538C11C02B4D24AC00D751B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538C11BE2B4D24AC00D751B5 /* LaunchScreen.storyboard */; };
+		538C11CA2B4D251700D751B5 /* Color.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538C11C82B4D251700D751B5 /* Color.storyboard */; };
+		538C11CB2B4D251700D751B5 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11C92B4D251700D751B5 /* ColorViewController.swift */; };
+		538C11CD2B4D254100D751B5 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 538C11CC2B4D254100D751B5 /* Entitlements.plist */; };
+		538C11D12B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11CF2B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift */; };
+		538C11D22B4D256100D751B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11D02B4D256100D751B5 /* AppDelegate.swift */; };
+		538C11D72B4D258000D751B5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11D42B4D258000D751B5 /* Logger.swift */; };
+		538C11D82B4D258000D751B5 /* LoggerWindowSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11D52B4D258000D751B5 /* LoggerWindowSceneDelegate.swift */; };
+		538C11D92B4D258000D751B5 /* LoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11D62B4D258000D751B5 /* LoggerViewController.swift */; };
+		538C11DC2B4D25BA00D751B5 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C11DB2B4D25BA00D751B5 /* TemplateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		538C11B02B4D24AA00D751B5 /* LearningCarPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCarPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		538C11B32B4D24AA00D751B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		538C11B52B4D24AA00D751B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		538C11B72B4D24AA00D751B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		538C11BA2B4D24AA00D751B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		538C11BC2B4D24AC00D751B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538C11BF2B4D24AC00D751B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		538C11C12B4D24AC00D751B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		538C11C82B4D251700D751B5 /* Color.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Color.storyboard; sourceTree = "<group>"; };
+		538C11C92B4D251700D751B5 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		538C11CC2B4D254100D751B5 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		538C11CF2B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayTemplateApplicationSceneDelegate.swift; sourceTree = "<group>"; };
+		538C11D02B4D256100D751B5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		538C11D42B4D258000D751B5 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		538C11D52B4D258000D751B5 /* LoggerWindowSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerWindowSceneDelegate.swift; sourceTree = "<group>"; };
+		538C11D62B4D258000D751B5 /* LoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerViewController.swift; sourceTree = "<group>"; };
+		538C11DB2B4D25BA00D751B5 /* TemplateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,52 @@
 		538C11B22B4D24AA00D751B5 /* LearningCarPlay */ = {
 			isa = PBXGroup;
 			children = (
-				538C11B32B4D24AA00D751B5 /* AppDelegate.swift */,
-				538C11B52B4D24AA00D751B5 /* SceneDelegate.swift */,
-				538C11B72B4D24AA00D751B5 /* ViewController.swift */,
-				538C11B92B4D24AA00D751B5 /* Main.storyboard */,
+				538C11CC2B4D254100D751B5 /* Entitlements.plist */,
+				538C11CE2B4D256100D751B5 /* View Lifecycle */,
+				538C11D32B4D258000D751B5 /* Logging */,
+				538C11DA2B4D25AB00D751B5 /* Template */,
+				538C11C72B4D251700D751B5 /* Color */,
 				538C11BC2B4D24AC00D751B5 /* Assets.xcassets */,
 				538C11BE2B4D24AC00D751B5 /* LaunchScreen.storyboard */,
 				538C11C12B4D24AC00D751B5 /* Info.plist */,
 			);
 			path = LearningCarPlay;
+			sourceTree = "<group>";
+		};
+		538C11C72B4D251700D751B5 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				538C11C82B4D251700D751B5 /* Color.storyboard */,
+				538C11C92B4D251700D751B5 /* ColorViewController.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		538C11CE2B4D256100D751B5 /* View Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				538C11CF2B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift */,
+				538C11D02B4D256100D751B5 /* AppDelegate.swift */,
+			);
+			path = "View Lifecycle";
+			sourceTree = "<group>";
+		};
+		538C11D32B4D258000D751B5 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				538C11D42B4D258000D751B5 /* Logger.swift */,
+				538C11D52B4D258000D751B5 /* LoggerWindowSceneDelegate.swift */,
+				538C11D62B4D258000D751B5 /* LoggerViewController.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		538C11DA2B4D25AB00D751B5 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				538C11DB2B4D25BA00D751B5 /* TemplateManager.swift */,
+			);
+			path = Template;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +174,8 @@
 			files = (
 				538C11C02B4D24AC00D751B5 /* LaunchScreen.storyboard in Resources */,
 				538C11BD2B4D24AC00D751B5 /* Assets.xcassets in Resources */,
-				538C11BB2B4D24AA00D751B5 /* Main.storyboard in Resources */,
+				538C11CA2B4D251700D751B5 /* Color.storyboard in Resources */,
+				538C11CD2B4D254100D751B5 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +186,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538C11B82B4D24AA00D751B5 /* ViewController.swift in Sources */,
-				538C11B42B4D24AA00D751B5 /* AppDelegate.swift in Sources */,
-				538C11B62B4D24AA00D751B5 /* SceneDelegate.swift in Sources */,
+				538C11D22B4D256100D751B5 /* AppDelegate.swift in Sources */,
+				538C11D12B4D256100D751B5 /* CarPlayTemplateApplicationSceneDelegate.swift in Sources */,
+				538C11DC2B4D25BA00D751B5 /* TemplateManager.swift in Sources */,
+				538C11D82B4D258000D751B5 /* LoggerWindowSceneDelegate.swift in Sources */,
+				538C11D92B4D258000D751B5 /* LoggerViewController.swift in Sources */,
+				538C11D72B4D258000D751B5 /* Logger.swift in Sources */,
+				538C11CB2B4D251700D751B5 /* ColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		538C11B92B4D24AA00D751B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				538C11BA2B4D24AA00D751B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		538C11BE2B4D24AC00D751B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,13 +334,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = /Users/sinhlh.fhn/Documents/LearningCarPlay/LearningCarPlay/Entitlements.plist;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = LearningCarPlay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,13 +362,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = /Users/sinhlh.fhn/Documents/LearningCarPlay/LearningCarPlay/Entitlements.plist;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = LearningCarPlay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
